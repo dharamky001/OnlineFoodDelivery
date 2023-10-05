@@ -9,115 +9,126 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart</title>
     <style>
-        /* Add your CSS styles for the cart here */
-        	
-h2{color:rgb(0, 128, 128)}
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+		body{
+			margin: 0;
+			padding-top: 50px;
+			box-sizing: border-box;
+			font-family: 'Open Sans', sans-serif;
+			height: 100%;
+        }
 
-/* Style the navigation bar */
-
-header{
-   background-color: rgb(255, 128, 0); /* Set your desired background color */
-    color: #fff;  
-    padding: 10px 0;
-}
-
-.containers {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.menu {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-.menu li {
-    padding: 0;
-    margin: 0;
-}
-
-
-.menu li a {
-    text-decoration: none;
-    color:rgb(64, 0, 64);
-    font-weight: bold;
-    font-size: 18px;
-    transition: color 0.3s;
-}
-
-.menu a:hover {
-    color: rgb(128, 255, 0); /* Change color on hover */
-}
-
-        
-        
-	      
-	      
-	      
-	      
-	      
-	      
-	        
-     body{
-	    margin: 0;
-	    padding: 0;
-	    box-sizing: border-box;
-	    font-family: 'Open Sans', sans-serif;
-	    height: 100%;
-	}
-	
-	#menu{
-	    background: whitesmoke;
-	   
-	}
-	.menu-item h2{
-		text-align: center;
-		font-weight: 900;
-	}
+		/* Style the navigation bar */
 		
-	.menu-item a{
-		background-color:sandybrown;
-        border: 2px solid black;
-	    display: block;
-	    text-decoration: none;
-	    font-size: 20px;
-	    padding: 57px 58px;
-	    font-family: Verdana, Geneva, Tahoma, sans-serif;
-	    margin: 12px 0;
-	    color: rgb(128, 129, 129);
-	    font-weight: 300;
-	    text-align: center;
-	    color: lightseagreen;
-	    font-weight: 700;
+	   h2{color:rgb(0, 128, 128)}
+			*{
+			    margin: 0;
+			    padding: 0;
+			    box-sizing: border-box;
+			}
+					
+		header {
+		    position: fixed;
+		    top: 0;
+		    left: 0;
+		    right: 0;
+		    background-color: rgb(255, 128, 0);
+		    color: #fff;
+		    padding: 10px 0;
+		}
+
+		
+		.nav_container {
+		    max-width: 1200px;
+		    margin: 0 auto;
+		    display: flex;
+		    justify-content: space-between;
+		    align-items: center;
+		}
+		
+		.logo {
+		    font-size: 24px;
+		    font-weight: bold;
+		}
+		
+		.menu {
+		    list-style: none;
+		    display: flex;
+		    gap: 20px;
+		}
+		
+		.menu li {
+		    padding: 0;
+		    margin: 0;
+		}
+		
+		.menu a {
+		    text-decoration: none;
+		    color:rgb(64, 0, 64);
+		    font-weight: bold;
+		    font-size: 18px;
+		    transition: color 0.3s;
+		}
+		
+		.menu a:hover {
+		    color: rgb(128, 255, 0); 
+		}
+		
+		
+        /* Style the left-container*/
+	        
+	     
+	  .left-container {
+	        background: whitesmoke;
+	        position: fixed;
+	        height: 100%;
+	        overflow-y: auto;
+	        width: 300px; 
+	    }
+	
+	    .menu-item {
+	        display: grid;
+	        grid-template-columns: 1fr; 
+	        grid-gap: 10px;
+	    }
+	
+	    .menu-item h2 {
+	        text-align: center;
+	        font-weight: 900;
+	    }
+	
+	    .menu-item a {
+	        background-color: sandybrown;
+	        border: 2px solid black;
+	        text-decoration: none;
+	        font-size: 20px;
+	        padding: 15px;
+	        font-family: Verdana, Geneva, Tahoma, sans-serif;
+	        color: lightseagreen;
+	        font-weight: 700;
+	        text-align: center;
+	        transition: background-color 0.3s ease, color 0.3s ease;
+	    }
+	
+	    .menu-item a:hover {
+	        background-color: lightseagreen;
+	        color: sandybrown;
+	    }   
 	    
-	}    	        
+                  /* Style the container and item */
+       
 	    .container{
-	    display: grid;
-	    grid-template-columns: 349px 1fr; 
-	    min-height: 100vh;
+	    /*display: grid;
+	    grid-template-columns: 349px 1fr;  */
+	    margin-left: 300px;
+	    width: 77%;
 	    min-height: -webkit-fill-available;
 	    overflow: hidden;
-	  
 	  }
 	  
-	  #food-item{
+	   #food-item{
 		  margin: 0;
 		  padding: 0;
-	  }  
+      }  
          .menu-item a:hover{
           background: rgb(128, 255, 0);
           color: darkslategray;
@@ -146,9 +157,9 @@ header{
 		}
 		
 		#item-card img{
-			width: 250px;
+			width: 262px;
 			height: 200px;
-			border-radius: 20%;
+			border-radius: 100%;
 			cursor: pointer;
 			margin: auto;
 			display: block;
@@ -156,7 +167,7 @@ header{
 		    transition: 0.5s all ease-in-out;
 		}
 		#item-card img:hover{
-			transform: scale(1.15);
+			transform: scale(1.2);
 		}
 		#card-top{
 			display: flex;
@@ -193,37 +204,27 @@ header{
 			justify-content:space-around;
 		}
 		#addtocart{
-			cursor: pointer;
-			margin: 0px;
+			background-color: rgb(253, 221, 226);
+			margin: -1px;
 			font-weight: 700;
 			font-size: 18px;
 			color: rgb(2, 27,30);
 		}
 		#addtocart:hover{
 			color: lightseagreen;
-			cursor: pointer;
 		}
-		
-		#biryani #item-card{
-			background:sandybrown;
-		}
-		
-		#Paneer #item-card{
-			background:papayawhip;
-		}
-		
-		#Vegitable #item-card{
-			background:lightgoldenrodyellow;
-		}
+	
     </style>
+    
 </head>
     
 <body>
-	<header >
+	
+	<header>
 
-        <nav>
-            <div class="containers">
-                <h2 class="logo">Food_Order</h2>
+        <nav >
+            <div class="nav_container">
+                <h2 class="logo">Food Order</h2>
                 <ul class="menu">
                     <li><a href="home.html">Home</a></li>              
                     <li><a href="#">About Us</a></li>
@@ -233,21 +234,22 @@ header{
                 </ul>
             </div>
         </nav>
-</header>
+  </header>
+	
+<div class="left-container" id="menu">
+    <div class="menu-item">
+        <h2>Category</h2>
+        <a href="#biryani">Biryani</a>
+        <a href="#chicken">Chicken Delicious</a>
+        <a href="#Paneer">Paneer Mania</a>
+        <a href="#Vegitable">Pure Veg Dishes</a>
+    </div>
+</div>
+	
 
-    <div class="container" id="container">
-        <div id="menu">
-            <div class="menu-item">
-                <h2>Category</h2>
-                <a href="#biryani">Biryani</a>
-                <a href="#chicken">Chicken Delicious</a>
-                <a href="#Paneer">Paneer Mania</a>
-                <a href="#Vegitable">Pure Veg Dishes</a>
-            </div>
-        </div>        
-    
        
-       <div id="food-item">
+    <div class="container" id="container">
+        <div id="food-item">
 		   <div id="biryani">
 			   <p id="category-name"> Biryani</p>
 			   <div id="item-card">
@@ -259,7 +261,7 @@ header{
 				   <p id="item-name">Ambur Biryani</p>
 				   <div id="cart-buttom">
 				     <p id="item-price">Price :  ₹130</p>
-					 <p id="addtocart">Add_Cart</p>						   
+				     <button id="addtocart">add cart</button>						   
 				   </div>
 			   </div>
 			   
@@ -272,7 +274,7 @@ header{
 				   <p id="item-name">Hyderabadi Biryani</p>
 				   <div id="cart-buttom">
 				     <p id="item-price">Price : ₹190</p>
-					 <p id="addtocart">Add_Cart</p>						   
+					 <button id="addtocart">add cart</button>						   
 				   </div>
 			   </div>
 			   
@@ -285,7 +287,7 @@ header{
 				   <p id="item-name">Egg Biryani</p>
 				   <div id="cart-buttom">
 				     <p id="item-price">Price : ₹120</p>
-					 <p id="addtocart">Add_Cart</p>						   
+					 <button id="addtocart">add cart</button>						   
 				   </div>
 			   </div>
 			   
@@ -298,7 +300,7 @@ header{
 				   <p id="item-name">Fish Biryani</p>
 				   <div id="cart-buttom">
 				     <p id="item-price">Price : ₹180</p>
-					 <p id="addtocart">Add_Cart</p>						   
+					<button id="addtocart">add cart</button>						   
 				   </div>
 			   </div>
 			   
@@ -311,7 +313,7 @@ header{
 				   <p id="item-name">Mutton Biryani</p>
 				   <div id="cart-buttom">
 				     <p id="item-price">Price : ₹250</p>
-					 <p id="addtocart">Add_Cart</p>						   
+					 <button id="addtocart">add cart</button>					   
 				   </div>
 			   </div>
 			   
@@ -324,7 +326,7 @@ header{
 				   <p id="item-name">Kampuri Biryani</p>
 				   <div id="cart-buttom">
 				     <p id="item-price">Price : ₹210</p>
-					 <p id="addtocart">Add_Cart</p>						   
+					 <button id="addtocart">add cart</button>						   
 				   </div>
 			   </div>
 			   
@@ -337,7 +339,7 @@ header{
 				   <p id="item-name">Mughlai Biryani</p>
 				   <div id="cart-buttom">
 				     <p id="item-price">Price : ₹240</p>
-					 <p id="addtocart">Add_Cart</p>						   
+					 <button id="addtocart">add cart</button>						   
 				   </div>
 			   </div>
 			   
@@ -350,7 +352,7 @@ header{
 				   <p id="item-name">keshmiri Biryani</p>
 				   <div id="cart-buttom">
 				     <p id="item-price">Price : ₹210</p>
-					 <p id="addtocart">Add_Cart</p>						   
+					 <button id="addtocart">add cart</button>						   
 				   </div>
 			   </div>
 			   
@@ -369,7 +371,7 @@ header{
 				   <p id="item-name">Chicken Roast</p>				   
 				   <div id="cart-buttom">
 				     <p id="item-price">Price : ₹110</p>
-					 <p id="addtocart">Add_Cart</p>						   
+					<button id="addtocart">add cart</button>					   
 				   </div>
 			   </div>
 			   
@@ -382,7 +384,7 @@ header{
 				   <p id="item-name">Chicken Curry</p>
 				   <div id="cart-buttom">
 				     <p id="item-price">Price : ₹120</p>
-					 <p id="addtocart">Add_Cart</p>						   
+					<button id="addtocart">add cart</button>						   
 				   </div>
 			   </div>
 			   
@@ -395,7 +397,7 @@ header{
 				   <p id="item-name">Chicken Do Pyaza</p>
 				   <div id="cart-buttom">
 				     <p id="item-price">Price : ₹220</p>
-					 <p id="addtocart">Add_Cart</p>						   
+					 <button id="addtocart">add cart</button>					   
 				   </div>		   
 			   </div>
 			   
@@ -408,7 +410,7 @@ header{
 				   <p id="item-name">Chicken Masala</p>
 				   <div id="cart-buttom">
 				     <p id="item-price">Price : ₹240</p>
-					 <p id="addtocart">Add_Cart</p>						   
+					 <button id="addtocart">add cart</button>						   
 				   </div>
 			   </div>
 			   
@@ -421,7 +423,7 @@ header{
 				   <p id="item-name">Handi Chicken</p>
 				   <div id="cart-buttom">
 				     <p id="item-price">Price : ₹290</p>
-					 <p id="addtocart">Add_Cart</p>						   
+					  <button id="addtocart">add cart</button>							   
 				   </div>
 			   </div>
 			   
@@ -434,7 +436,7 @@ header{
 				   <p id="item-name">Murgh Musallam</p>
 				   <div id="cart-buttom">
 				     <p id="item-price">Price : ₹205</p>
-					 <p id="addtocart">Add_Cart</p>						   
+					  <button id="addtocart">add cart</button>							   
 				   </div>
 			   </div>
 			   
@@ -453,7 +455,7 @@ header{
 				   <p id="item-name">Matar Paneer</p>
 				   <div id="cart-buttom">
 				     <p id="item-price">Price : ₹190</p>
-					 <p id="addtocart">Add_Cart</p>						   
+					  <button id="addtocart">add cart</button>							   
 				   </div>
 			   </div>
 			   
@@ -466,7 +468,7 @@ header{
 				   <p id="item-name">Palak Paneer </p>
 				   <div id="cart-buttom">
 				     <p id="item-price">Price : ₹200</p>
-					 <p id="addtocart">Add_Cart</p>						   
+					 <button id="addtocart">add cart</button>							   
 				   </div>
 			   </div>
 			   
@@ -479,7 +481,7 @@ header{
 				   <p id="item-name">Paneer Butter Masala</p>
 				   <div id="cart-buttom">
 				     <p id="item-price">Price : ₹190</p>
-					 <p id="addtocart">Add_Cart</p>						   
+					 <button id="addtocart">add cart</button>						   
 				   </div>
 			   </div>
 			   
@@ -492,7 +494,7 @@ header{
 				   <p id="item-name">Paneer do Pyaza</p>
 				   <div id="cart-buttom">
 				     <p id="item-price">Price : ₹210</p>
-					 <p id="addtocart">Add_Cart</p>						   
+					  <button id="addtocart">add cart</button>							   
 				   </div>
 			   </div>
 			   
@@ -505,7 +507,7 @@ header{
 				   <p id="item-name">Hyderabadi paneer</p>
 				   <div id="cart-buttom">
 				     <p id="item-price">Price : ₹160</p>
-					 <p id="addtocart">Add_Cart</p>						   
+					  <button id="addtocart">add cart</button>						   
 				   </div>
 			   </div>
 			   
@@ -518,7 +520,7 @@ header{
 				   <p id="item-name">Paneer Lababdar</p>
 				   <div id="cart-buttom">
 				     <p id="item-price">Price : ₹180</p>
-					 <p id="addtocart">Add_Cart</p>						   
+					  <button id="addtocart">add cart</button>					   
 				   </div>
 			   </div>
 			   
@@ -531,7 +533,7 @@ header{
 				   <p id="item-name">Shahi Paneer</p>
 				   <div id="cart-buttom">
 				     <p id="item-price">Price : ₹280</p>
-					 <p id="addtocart">Add_Cart</p>						   
+					  <button id="addtocart">add cart</button>							   
 				   </div>
 			   </div>
 			   
@@ -550,7 +552,7 @@ header{
 				   <p id="item-name">Navratan Korma</p>
 				  <div id="cart-buttom">
 				     <p id="item-price">Price : ₹200</p>
-					 <p id="addtocart">Add_Cart</p>						   
+					  <button id="addtocart">add cart</button>							   
 				   </div>
 			   </div>
 			   <div id="item-card">
@@ -562,7 +564,7 @@ header{
 				   <p id="item-name">Veg Jalfrezi</p>
 				   <div id="cart-buttom">
 				     <p id="item-price">Price : ₹190</p>
-					 <p id="addtocart">Add_Cart</p>						   
+					  <button id="addtocart">add cart</button>							   
 				   </div>
 			   </div>
 			   <div id="item-card">
@@ -574,7 +576,7 @@ header{
 				   <p id="item-name">Veg Biryani</p>
 				   <div id="cart-buttom">
 				     <p id="item-price">Price : ₹150</p>
-					 <p id="addtocart">Add_Cart</p>						   
+					  <button id="addtocart">add cart</button>						   
 				   </div>
 			   </div>
 			   
@@ -587,7 +589,7 @@ header{
 				   <p id="item-name">Veg Curry</p>
 				   <div id="cart-buttom">
 				     <p id="item-price">Price : ₹150</p>
-					 <p id="addtocart">Add_Cart</p>						   
+					  <button id="addtocart">add cart</button>						   
 				   </div>			
 			   </div>
 			   
@@ -600,7 +602,7 @@ header{
 				   <p id="item-name">Veg Kolhapur</p>
 				   <div id="cart-buttom">
 				     <p id="item-price">Price : ₹190</p>
-					 <p id="addtocart">Add_Cart</p>						   
+					 <button id="addtocart">add cart</button>						   
 				   </div>
 			   </div>
 			   
@@ -613,7 +615,7 @@ header{
 				   <p id="item-name">Veg Pakora</p>
 				   <div id="cart-buttom">
 				     <p id="item-price">Price : ₹80</p>
-					 <p id="addtocart">Add_Cart</p>						   
+					  <button id="addtocart">add cart</button>							   
 				   </div>
 			   </div>
 		   </div>
@@ -621,7 +623,6 @@ header{
 		   
 	  </div>
       </div>
-    
   
     
     
