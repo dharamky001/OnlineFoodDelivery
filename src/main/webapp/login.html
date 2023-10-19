@@ -35,7 +35,9 @@ body {
     margin-bottom: 20px;
 }
 
-.login-container input[type="text"],
+
+
+.login-container input[type="email"],
 .login-container input[type="password"] {
 	width: 100%;
     height: 37px;
@@ -114,9 +116,9 @@ body {
 <body>
     <div class="login-container">
         <h2>Login</h2>
-        <form novalidate id="login-form" method="post">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
+        <form  action="login" method="get">
+            <label for="Gmail">Gmail:</label>
+            <input type="email" id="Gmail" name="Gmail" required>
 
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
