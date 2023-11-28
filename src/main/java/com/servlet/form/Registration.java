@@ -7,6 +7,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -16,15 +17,9 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/RigistrationServlet")
 public class Registration extends HttpServlet{
-	
+
 	Connection conn= null;
 	String sql = "INSERT INTO registrationform(name,email,password,confirmPassword)values(?,?,?,?)";
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(req, resp);
-	}
-	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) 
 			throws ServletException, IOException {
@@ -46,23 +41,29 @@ public class Registration extends HttpServlet{
 		
 		String dbURL = "jdbc:mysql://localhost/fooddelivery";
 		String username = "root";
-		String passwords ="Dharam@3436";
-		PreparedStatement preparedstatement;
+		String passwords ="dharam";
+		PreparedStatement ps;
 		
 		try {
 			
 			conn = DriverManager.getConnection(dbURL, username, passwords);
-			preparedstatement = conn.prepareStatement(sql);
-			preparedstatement.setString(1, name);
-			preparedstatement.setString(2, email);
-			preparedstatement.setString(3, password);
-			preparedstatement.setString(4, cpassword);
-			int row = preparedstatement.executeUpdate();
-			if(row == 0) {
-				pw.println("record not store into datase");
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, name);
+			ps.setString(2, email);
+			ps.setString(3, password);
+			ps.setString(4, cpassword);
+			int row = ps.executeUpdate();
+			if(row > 0) {
+				resp.setContentType("text/html");
+				pw.print("<h3 style='color:green'>User registered successfully</h3>");
+				RequestDispatcher rd = req.getRequestDispatcher("/home.jsp");
+				rd.include(req, resp);
 			}else
 			{
-				pw.println("record store into datase");
+				resp.setContentType("text/html");
+				pw.print("<h3 style='color:red'>User not registered</h3>");
+				RequestDispatcher rd = req.getRequestDispatcher("/Registration.jsp");
+				rd.include(req, resp);
 			}
 		} catch (SQLException es) {
 			// TODO Auto-generated catch block

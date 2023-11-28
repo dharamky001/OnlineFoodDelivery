@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -116,7 +118,7 @@ body {
 <body>
     <div class="login-container">
         <h2>Login</h2>
-        <form  action="login" method="get">
+        <form  action="login" method="post">
             <label for="Gmail">Gmail:</label>
             <input type="email" id="Gmail" name="Gmail" required>
 

@@ -1,5 +1,5 @@
-
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <html lang="en">
 	
 <head>
@@ -26,7 +26,11 @@
 			    box-sizing: border-box;
 			}
 			
-			
+			.button{
+			height: 30px;
+			width:60px;
+			background-colour:green;
+			}
 					
 		header{
 		    position: fixed;
@@ -228,11 +232,12 @@
             <div class="nav_container">
                 <h2 class="logo">Food Order</h2>
                 <ul class="menu">
-                    <li><a href="home.html">Home</a></li>              
+                    <li><a href="Index.html">Home</a></li>              
                     <li><a href="#">About Us</a></li>
                     <li><a href="#">Contact</a></li>
-                    <li><a href="login.html">login</a></li>
-                    <li><a href="Registration.html">SignUp</a></li>                              
+                    <li><a href="#">My Order</a></li>  
+                    <li><a href="home.jsp">Logout</a></li>  
+                    <%--  <button class="button" id="form-open"><%= session.getAttribute("Name")%></button>   --%>              
                 </ul>
             </div>
         </nav>
